@@ -36,6 +36,10 @@ fi
 svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome package/luci-app-adguardhome
 svn export https://github.com/kenzok8/openwrt-packages/trunk/adguardhome package/adguardhome
 
+# passwall
+svn export https://github.com/s71557/lede-packages/trunk/luci-app-passwall package/luci-app-passwall
+svn export https://github.com/s71557/lede-packages/trunk/openwrt-passwall-packages package/openwrt-passwall-packages
+
 # 添加自定义软件包
 echo "
 # 额外组件
@@ -49,6 +53,10 @@ CONFIG_PACKAGE_luci-i18n-poweroff-zh-cn=y
 # openclash
 CONFIG_PACKAGE_luci-app-openclash=y
 CONFIG_PACKAGE_luci-i18n-openclash-zh-cn=y
+
+# passwall
+CONFIG_PACKAGE_luci-app-passwall=y
+CONFIG_PACKAGE_luci-i18n-passwall-zh-cn=y
 
 # adguardhome
 CONFIG_PACKAGE_luci-app-adguardhome=y
