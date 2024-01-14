@@ -37,9 +37,21 @@ svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhom
 svn export https://github.com/kenzok8/openwrt-packages/trunk/adguardhome package/adguardhome
 
 # 添加自定义软件包
-echo '
-# CONFIG_PACKAGE_luci-app-mosdns=y
-CONFIG_PACKAGE_luci-app-adguardhome=y
+echo "
+# 额外组件
+CONFIG_GRUB_IMAGES=y
+CONFIG_VMDK_IMAGES=y
+
+# 关机
+CONFIG_PACKAGE_luci-app-poweroff=y
+CONFIG_PACKAGE_luci-i18n-poweroff-zh-cn=y
+
+# openclash
 CONFIG_PACKAGE_luci-app-openclash=y
-CONFIG_PACKAGE_luci-app-passwall=y
-' >> .config
+CONFIG_PACKAGE_luci-i18n-openclash-zh-cn=y
+
+# adguardhome
+CONFIG_PACKAGE_luci-app-adguardhome=y
+CONFIG_PACKAGE_luci-i18n-adguardhome-zh-cn=y
+
+" >> .config
