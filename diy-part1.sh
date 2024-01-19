@@ -15,19 +15,10 @@
 
 # Add a feed source
 #echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
-#echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
-#echo 'src-git passwallpackages https://github.com/xiaorouji/openwrt-passwall-packages' >>feeds.conf.default
+echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
+echo 'src-git passwallpackages https://github.com/xiaorouji/openwrt-passwall-packages' >>feeds.conf.default
 
-# echo 'src-git openclash https://github.com/vernesong/OpenClash' >>feeds.conf.default
-# echo 'src-git adguardhome https://github.com/rufengsuixing/luci-app-adguardhome' >>feeds.conf.default
+echo 'src-git openclash https://github.com/vernesong/OpenClash' >>feeds.conf.default
+echo 'src-git adguardhome https://github.com/rufengsuixing/luci-app-adguardhome' >>feeds.conf.default
 # echo 'src-git mosdns https://github.com/sbwml/luci-app-mosdns' >>feeds.conf.default
 
-# openclash
-svn export https://github.com/s71557/lede-packages/trunk/luci-app-openclash  package/luci-app-openclash
-
-# adguardhome
-svn export https://github.com/s71557/lede-packages/trunk/luci-app-adguardhome package/luci-app-adguardhome
-
-# passwall
-svn export https://github.com/s71557/lede-packages/trunk/luci-app-passwall package/luci-app-passwall
-svn export https://github.com/s71557/lede-packages/trunk/openwrt-passwall-packages package/openwrt-passwall-packages
