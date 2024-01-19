@@ -19,6 +19,15 @@ sed -i 's/192.168.1.1/192.168.11.252/g' package/base-files/files/bin/config_gene
 # ttyd 自动登录
 # sed -i "s?/bin/login?/usr/libexec/login.sh?g" ${GITHUB_WORKSPACE}/openwrt/package/feeds/packages/ttyd/files/ttyd.config
 
+# 加入OpenClash核心
+chmod -R a+x $GITHUB_WORKSPACE/preset-clash-core.sh
+if [ "$1" = "rk33xx" ]; then
+    $GITHUB_WORKSPACE/preset-clash-core.sh arm64
+elif [ "$1" = "rk35xx" ]; then
+    $GITHUB_WORKSPACE/preset-clash-core.sh arm64
+elif [ "$1" = "x86" ]; then
+    $GITHUB_WORKSPACE/preset-clash-core.sh amd64
+fi
 
 
 # 添加自定义软件包
