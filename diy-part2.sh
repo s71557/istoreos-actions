@@ -36,6 +36,11 @@ fi
 svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome package/luci-app-adguardhome
 svn export https://github.com/kenzok8/openwrt-packages/trunk/adguardhome package/adguardhome
 
+# mosdns
+svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-mosdns package/luci-app-mosdns
+svn export https://github.com/kenzok8/openwrt-packages/trunk/mosdns package/mosdns
+svn export https://github.com/kenzok8/openwrt-packages/trunk/v2dat package/v2dat
+
 
 # 添加自定义软件包
 echo "
@@ -54,6 +59,10 @@ CONFIG_PACKAGE_luci-i18n-openclash-zh-cn=y
 # adguardhome
 CONFIG_PACKAGE_luci-app-adguardhome=y
 CONFIG_PACKAGE_luci-i18n-adguardhome-zh-cn=y
+
+# mosdns
+CONFIG_PACKAGE_luci-app-mosdns=y
+CONFIG_PACKAGE_luci-i18n-mosdns-zh-cn=y
 
 " >> .config
 
