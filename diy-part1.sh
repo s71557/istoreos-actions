@@ -21,3 +21,22 @@
 # echo 'src-git openclash https://github.com/vernesong/OpenClash' >>feeds.conf.default
 # echo 'src-git adguardhome https://github.com/rufengsuixing/luci-app-adguardhome' >>feeds.conf.default
 # echo 'src-git mosdns https://github.com/sbwml/luci-app-mosdns' >>feeds.conf.default
+
+# openclash
+svn export https://github.com/s71557/lede-packages/trunk/luci-app-openclash  package/luci-app-openclash
+# 加入OpenClash核心
+chmod -R a+x $GITHUB_WORKSPACE/preset-clash-core.sh
+if [ "$1" = "rk33xx" ]; then
+    $GITHUB_WORKSPACE/preset-clash-core.sh arm64
+elif [ "$1" = "rk35xx" ]; then
+    $GITHUB_WORKSPACE/preset-clash-core.sh arm64
+elif [ "$1" = "x86" ]; then
+    $GITHUB_WORKSPACE/preset-clash-core.sh amd64
+fi
+
+# adguardhome
+svn export https://github.com/s71557/lede-packages/trunk/luci-app-adguardhome package/luci-app-adguardhome
+
+# passwall
+svn export https://github.com/s71557/lede-packages/trunk/luci-app-passwall package/luci-app-passwall
+svn export https://github.com/s71557/lede-packages/trunk/openwrt-passwall-packages package/openwrt-passwall-packages
