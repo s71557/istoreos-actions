@@ -20,8 +20,8 @@ sed -i 's/192.168.1.1/192.168.11.252/g' package/base-files/files/bin/config_gene
 # sed -i "s?/bin/login?/usr/libexec/login.sh?g" ${GITHUB_WORKSPACE}/openwrt/package/feeds/packages/ttyd/files/ttyd.config
 
 # openclash
-svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-openclash  package/luci-app-openclash
-# svn export https://github.com/kiddin9/openwrt-packages/trunk/luci-app-openclash  package/luci-app-openclash
+#svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-openclash  package/luci-app-openclash
+svn export https://github.com/s71557/Lede-Packages/tree/master/luci-app-openclash  package/luci-app-openclash
 # 加入OpenClash核心
 chmod -R a+x $GITHUB_WORKSPACE/preset-clash-core.sh
 if [ "$1" = "rk33xx" ]; then
@@ -33,13 +33,13 @@ elif [ "$1" = "x86" ]; then
 fi
 
 # adguardhome
-svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome package/luci-app-adguardhome
-svn export https://github.com/kenzok8/openwrt-packages/trunk/adguardhome package/adguardhome
+#svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome package/luci-app-adguardhome
+#svn export https://github.com/kenzok8/openwrt-packages/trunk/adguardhome package/adguardhome
 
 # mosdns
-svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-mosdns package/luci-app-mosdns
-svn export https://github.com/kenzok8/openwrt-packages/trunk/mosdns package/mosdns
-svn export https://github.com/kenzok8/openwrt-packages/trunk/v2dat package/v2dat
+#svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-mosdns package/luci-app-mosdns
+#svn export https://github.com/kenzok8/openwrt-packages/trunk/mosdns package/mosdns
+#svn export https://github.com/kenzok8/openwrt-packages/trunk/v2dat package/v2dat
 
 
 # 添加自定义软件包
@@ -57,23 +57,23 @@ CONFIG_PACKAGE_luci-app-openclash=y
 CONFIG_PACKAGE_luci-i18n-openclash-zh-cn=y
 
 # adguardhome
-CONFIG_PACKAGE_luci-app-adguardhome=y
-CONFIG_PACKAGE_luci-i18n-adguardhome-zh-cn=y
+#CONFIG_PACKAGE_luci-app-adguardhome=y
+#CONFIG_PACKAGE_luci-i18n-adguardhome-zh-cn=y
 
 # mosdns
-CONFIG_PACKAGE_luci-app-mosdns=y
-CONFIG_PACKAGE_luci-i18n-mosdns-zh-cn=y
+#CONFIG_PACKAGE_luci-app-mosdns=y
+#CONFIG_PACKAGE_luci-i18n-mosdns-zh-cn=y
 
 " >> .config
 
 # 移除 ddns 和 ddnsto
-sed -i 's/CONFIG_PACKAGE_ddns-scripts=y/CONFIG_PACKAGE_ddns-scripts=n/' .config
-sed -i 's/CONFIG_PACKAGE_ddns-scripts-cloudflare=y/CONFIG_PACKAGE_ddns-scripts-cloudflare=n/' .config
-sed -i 's/CONFIG_PACKAGE_ddns-scripts-dnspod=y/CONFIG_PACKAGE_ddns-scripts-dnspod=n/' .config
-sed -i 's/CONFIG_PACKAGE_ddns-scripts-services=y/CONFIG_PACKAGE_ddns-scripts-services=n/' .config
-sed -i 's/CONFIG_PACKAGE_ddns-scripts_aliyun=y/CONFIG_PACKAGE_ddns-scripts_aliyun=n/' .config
-sed -i 's/CONFIG_PACKAGE_luci-app-ddns=y/CONFIG_PACKAGE_luci-app-ddns=n/' .config
-sed -i 's/CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=y/CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=n/' .config
+#sed -i 's/CONFIG_PACKAGE_ddns-scripts=y/CONFIG_PACKAGE_ddns-scripts=n/' .config
+#sed -i 's/CONFIG_PACKAGE_ddns-scripts-cloudflare=y/CONFIG_PACKAGE_ddns-scripts-cloudflare=n/' .config
+#sed -i 's/CONFIG_PACKAGE_ddns-scripts-dnspod=y/CONFIG_PACKAGE_ddns-scripts-dnspod=n/' .config
+#sed -i 's/CONFIG_PACKAGE_ddns-scripts-services=y/CONFIG_PACKAGE_ddns-scripts-services=n/' .config
+#sed -i 's/CONFIG_PACKAGE_ddns-scripts_aliyun=y/CONFIG_PACKAGE_ddns-scripts_aliyun=n/' .config
+#sed -i 's/CONFIG_PACKAGE_luci-app-ddns=y/CONFIG_PACKAGE_luci-app-ddns=n/' .config
+#sed -i 's/CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=y/CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=n/' .config
 
 # 移除 bootstrap 主题
-sed -i 's/CONFIG_PACKAGE_luci-theme-bootstrap=y/CONFIG_PACKAGE_luci-theme-bootstrap=n/' .config
+#sed -i 's/CONFIG_PACKAGE_luci-theme-bootstrap=y/CONFIG_PACKAGE_luci-theme-bootstrap=n/' .config
